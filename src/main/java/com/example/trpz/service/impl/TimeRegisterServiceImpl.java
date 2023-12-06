@@ -13,10 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TimeRegisterServiceImpl implements TimeRegisterService {
     private final TimeRegisterRepo timeRegisterRepo;
-    @Override
-    public List<TimeRegister> getDatesWhenTimeWasViolatedByUser(User user) {
-        return null;
-    }
 
     @Override
     public void save(TimeRegister timeRegister) {
