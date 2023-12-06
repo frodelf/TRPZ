@@ -20,16 +20,16 @@ public class TimeRegisterServiceImpl implements TimeRegisterService {
 
     @Override
     public void save(TimeRegister timeRegister) {
-
+        timeRegisterRepo.save(timeRegister);
     }
 
     @Override
     public List<TimeRegister> getByUserByToday(User user) {
-        return null;
+        return timeRegisterRepo.findAllByUserAndDateCreated(user, LocalDate.now());
     }
 
     @Override
     public List<TimeRegister> getByUserBetweenDates(User user, LocalDate from, LocalDate to) {
-        return null;
+        return timeRegisterRepo.findByDateCreatedBetweenAndUser(from, to, user);
     }
 }

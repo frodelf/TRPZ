@@ -12,6 +12,6 @@ public class ObserverServiceImpl implements ObserverService {
     private final ObserverRepo observerRepo;
     @Override
     public void reportViolation() {
-
+        System.out.println("Тривога!!!!!!!!!!");
     }
 }
