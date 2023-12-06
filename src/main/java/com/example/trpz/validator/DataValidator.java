@@ -10,12 +10,17 @@ import org.springframework.stereotype.Component;
 public class DataValidator {
     private final UserServiceImpl userService;
     private boolean validUserNameAndPassword(User user) {
-        return true;
+        User validUser = userService.getUserById(user.getId());
+        return user.getUsername().equals(validUser.getUsername()) && user.getPassword().equals(validUser.getPassword());
     }
     private boolean validRoles(User user) {
-        return false;
+        User validUser = userService.getUserById(user.getId());
+        return user.getRole().equals(validUser.getRole());
     }
     public boolean validUser(User user) {
-        return true;
+        if(validUserNameAndPassword(user)){
+            return validRoles(user);
+        }
+        return false;
     }
 }
